@@ -1,8 +1,11 @@
 package br.com.psoa.fiap.placarapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -11,6 +14,11 @@ public class GameActivity extends AppCompatActivity {
 
     private TextView tvTimeCasa;
     private TextView tvTimeVisitante;
+    private TextView tvTimeCasaPlacar;
+    private TextView tvTimeVisitantePlacar;
+    private int golCasa;
+    private int golVisitante;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +28,38 @@ public class GameActivity extends AppCompatActivity {
         tvTimeCasa = (TextView) findViewById(R.id.tvTimeCasa);
         tvTimeVisitante = (TextView) findViewById(R.id.tvTimeVisitante);
 
+        tvTimeCasaPlacar = (TextView) findViewById(R.id.tvTimeCasaPlacar);
+        tvTimeVisitantePlacar = (TextView) findViewById(R.id.tvTimeVisitantePlacar);
+
         if(getIntent() != null) {
             timeCasa = getIntent().getStringExtra("TIMECASA");
             timeVisitante = getIntent().getStringExtra("TIMEVISITANTE");
             tvTimeCasa.setText(timeCasa);
             tvTimeVisitante.setText(timeVisitante);
         }
+
+        if (savedInstanceState != null) {
+            golCasa = savedInstanceState.getInt("GOLCASA");
+            golVisitante  = savedInstanceState.getInt("GOLVISITANTE");
+        }
+        tvTimeCasaPlacar.setText(String.valueOf(golCasa));
+        tvTimeVisitantePlacar.setText(String.valueOf(golVisitante));
+    }
+
+    public void golCasa(View v) {
+        golCasa++;
+        tvTimeCasaPlacar.setText(String.valueOf(golCasa));
+    }
+
+    public void golVisitante(View v) {
+        golVisitante++;
+        tvTimeVisitantePlacar.setText(String.valueOf(golVisitante));
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("GOLCASA", golCasa);
+        outState.putInt("GOLVISITANTE", golVisitante);
     }
 }
