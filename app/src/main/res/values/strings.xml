@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">PlacarApp</string>
-    <string name="label_titulo">Times</string>
+    <string name="label_titulo">Teams</string>
     <string name="placar_inicial">0</string>
-    <string name="desenvolvido_por_tiago_novaes_dias">Desenvolvido por Tiago Novaes Dias</string>
+    <string name="desenvolvido_por_tiago_novaes_dias">Developed por Tiago Novaes Dias</string>
 </resources>
 

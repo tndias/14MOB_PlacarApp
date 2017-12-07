@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PlacarApp</string>
+    <string name="desenvolvido_por_tiago_novaes_dias">Desenvolvido por Tiago Novaes Dias</string>
+    <string name="label_titulo">Times</string>
+    <string name="placar_inicial">0</string>
+</resources>
